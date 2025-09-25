@@ -1,5 +1,5 @@
 
-USER:
+// USER //
 Registrierung:
 Als User möchte ich mich registrieren können, 
 damit ich ein eigenes Konto habe.
@@ -24,7 +24,16 @@ Belohnung einlösen:
 Als User möchte ich meine Punkte gegen eine Belohnung einlösen können, 
 damit ich davon profitieren kann.
 
-ADMIN:
+Profil bearbeiten:
+Als User möchte ich meine Profildaten (Name, E-Mail, Passwort) 
+ändern können, damit meine Daten aktuell bleiben. (Soll)
+
+Transaktionshistorie:
+Als User möchte ich eine Übersicht meiner bisherigen Punkte-Sammelvorgänge 
+und Einlösungen sehen, 
+damit ich nachvollziehen kann, was passiert ist. (Kann)
+
+// ADMIN //
 Registrierung:
 Als Admin möchte ich mich registrieren können, 
 damit ich ein Admin-Konto habe.
