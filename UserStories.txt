@@ -1,0 +1,50 @@
+
+USER:
+Registrierung:
+Als User möchte ich mich registrieren können, 
+damit ich ein eigenes Konto habe.
+
+Anmeldung:
+Als User möchte ich mich einloggen können, 
+damit ich Zugriff auf mein Konto habe.
+
+Bonus-Punkte sammeln:
+Als User möchte ich bei Restaurant-Besuchen Punkte sammeln können, 
+damit ich für meine Einkäufe belohnt werde.
+
+Punkte-Übersicht:
+Als User möchte ich meine gesammelten Punkte sehen können, 
+damit ich weiß, wie viele ich habe.
+
+Belohnungen anzeigen:
+Als User möchte ich eine Liste mit möglichen Belohnungen sehen können, 
+damit ich weiß, wofür ich meine Punkte einlösen kann.
+
+Belohnung einlösen:
+Als User möchte ich meine Punkte gegen eine Belohnung einlösen können, 
+damit ich davon profitieren kann.
+
+ADMIN:
+Registrierung:
+Als Admin möchte ich mich registrieren können, 
+damit ich ein Admin-Konto habe.
+
+Anmeldung:
+Als Admin möchte ich mich einloggen können, 
+damit ich das System verwalten kann.
+
+User-Verwaltung:
+Als Admin möchte ich Nutzerkonten verwalten können, 
+damit ich Überblick über alle User habe.
+
+Punkte-Verwaltung:
+Als Admin möchte ich Punkte den Usern verwalten können,
+damit ich mögliche Probleme beheben kann.
+
+Belohnungen verwalten:
+Als Admin möchte ich Belohnungen anlegen, 
+ändern oder löschen können, damit das Angebot aktuell bleibt.
+
+Übersicht:
+Als Admin möchte ich Statistiken über gesammelte und 
+eingelöste Punkte sehen können, damit ich die Nutzung auswerten kann.
