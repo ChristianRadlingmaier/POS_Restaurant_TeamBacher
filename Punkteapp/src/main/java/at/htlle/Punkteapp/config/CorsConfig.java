@@ -10,9 +10,10 @@ public class CorsConfig {
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
-            @Override public void addCorsMappings(CorsRegistry r) {
+            @Override
+            public void addCorsMappings(CorsRegistry r) {
                 r.addMapping("/**")
-                        .allowedOrigins("*")      // in Prod: konkrete App-URL setzen
+                        .allowedOrigins("*")           // in Prod: konkrete App-URL setzen
                         .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
                         .allowedHeaders("*");
             }
