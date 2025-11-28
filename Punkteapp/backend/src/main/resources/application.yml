@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: Punkteapp
+
+  datasource:
+    url: jdbc:h2:file:C:/Development/RestaurantApp/POS_Restaurant_TeamBacher/Datenbank/punkte;AUTO_SERVER=TRUE;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+server:
+  address: 127.0.0.1
+  port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+app:
+  jwt:
+    secret: change_this_to_a_really_long_random_secret_at_least_32_chars
