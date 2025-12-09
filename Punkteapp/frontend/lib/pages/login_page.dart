@@ -15,13 +15,12 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
   bool loading = false;
 
-  // ---------------------------------------------
-  // LOGIN FUNKTION
-  // ---------------------------------------------
+  static const String baseUrl = "http://192.168.5.155:8080";
+
   Future<void> login() async {
     setState(() => loading = true);
 
-    final url = Uri.parse("http://192.168.5.155:8080/api/auth/login");
+    final url = Uri.parse("$baseUrl/api/auth/login");
 
     final body = jsonEncode({
       "email": emailController.text.trim(),
@@ -39,11 +38,14 @@ class _LoginPageState extends State<LoginPage> {
         final json = jsonDecode(res.body);
 
         final token = json["token"];
+        final role = json["role"]; // optional, falls dein Backend das liefert
         if (token == null) throw Exception("Kein Token erhalten.");
 
-        // TOKEN SPEICHERN
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString("token", token);
+        if (role != null) {
+          await prefs.setString("role", role.toString());
+        }
 
         if (!mounted) return;
 
@@ -51,7 +53,12 @@ class _LoginPageState extends State<LoginPage> {
           const SnackBar(content: Text("Login erfolgreich!")),
         );
 
-        Navigator.pushReplacementNamed(context, "/rewards");
+        // Optional: Admin direkt ins Admin-Dashboard
+        if (role == "ADMIN") {
+          Navigator.pushReplacementNamed(context, "/admin");
+        } else {
+          Navigator.pushReplacementNamed(context, "/home");
+        }
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Falsche E-Mail oder Passwort.")),
@@ -66,9 +73,6 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  // ---------------------------------------------
-  // UI
-  // ---------------------------------------------
   @override
   Widget build(BuildContext context) {
     return Scaffold(

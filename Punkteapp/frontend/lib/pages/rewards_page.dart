@@ -1,24 +1,123 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../widgets/drawer_menu.dart';
 
-class RewardsPage extends StatelessWidget {
+class RewardsPage extends StatefulWidget {
   const RewardsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // 🔹 Dummy-Daten (5 Belohnungen)
-    final List<Map<String, dynamic>> rewards = [
-      {"title": "Gratis Kaffee", "points": 100, "desc": "Genieße einen kostenlosen Kaffee bei deinem nächsten Besuch."},
-      {"title": "10% Rabatt", "points": 200, "desc": "Erhalte 10% Rabatt auf deine gesamte Rechnung."},
-      {"title": "Gratis Dessert", "points": 300, "desc": "Wähle ein Dessert deiner Wahl kostenlos aus."},
-      {"title": "Gratis Getränk", "points": 150, "desc": "Ein kostenloses Getränk deiner Wahl zum Menü."},
-      {"title": "20% Rabatt auf das Menü", "points": 500, "desc": "Erhalte 20% Rabatt auf dein gesamtes Menü."},
-    ];
+  State<RewardsPage> createState() => _RewardsPageState();
+}
 
+class _RewardsPageState extends State<RewardsPage> {
+  static const String baseUrl = "http://192.168.5.155:8080";
+
+  List<Map<String, dynamic>> rewards = [];
+  bool loading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadRewards();
+  }
+
+  Future<void> _loadRewards() async {
+    setState(() => loading = true);
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString("token");
+
+    if (token == null) {
+      setState(() => loading = false);
+      return;
+    }
+
+    final url = Uri.parse("$baseUrl/api/user/rewards");
+
+    try {
+      final res = await http.get(
+        url,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token",
+        },
+      );
+
+      if (res.statusCode == 200) {
+        final List<dynamic> data = jsonDecode(res.body);
+
+        // ⚠️ Passen je nach Backend-Struktur
+        rewards = data.map((e) {
+          return {
+            "id": e["id"],
+            "title": e["title"] ?? e["name"] ?? "Belohnung",
+            "points": e["points"] ?? e["requiredPoints"] ?? 0,
+            "desc": e["description"] ?? "",
+          };
+        }).toList();
+
+        setState(() {});
+      } else {
+        // Fehlerbehandlung optional
+      }
+    } catch (_) {
+      // Fehlerbehandlung
+    } finally {
+      if (mounted) {
+        setState(() => loading = false);
+      }
+    }
+  }
+
+  Future<void> _redeemReward(Map<String, dynamic> reward) async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString("token");
+    if (token == null) return;
+
+    final url = Uri.parse("$baseUrl/api/user/redeem");
+
+    try {
+      final res = await http.post(
+        url,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token",
+        },
+        body: jsonEncode({
+          // ⚠️ an Backend anpassen: z.B. "rewardId"
+          "rewardId": reward["id"],
+        }),
+      );
+
+      if (!mounted) return;
+
+      if (res.statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("${reward["title"]} wurde eingelöst!")),
+        );
+        _loadRewards(); // optional neu laden
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Einlösen fehlgeschlagen.")),
+        );
+      }
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Fehler: $e")),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Belohnungen")),
       drawer: const DrawerMenu(),
-      body: ListView.builder(
+      body: loading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
         itemCount: rewards.length,
         itemBuilder: (context, index) {
           final reward = rewards[index];
@@ -37,11 +136,7 @@ class RewardsPage extends StatelessWidget {
               ),
               isThreeLine: true,
               trailing: ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("${reward["title"]} wurde eingelöst!")),
-                  );
-                },
+                onPressed: () => _redeemReward(reward),
                 child: const Text("Einlösen"),
               ),
             ),
