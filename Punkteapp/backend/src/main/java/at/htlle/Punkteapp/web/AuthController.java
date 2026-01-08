@@ -45,4 +45,13 @@ public class AuthController {
                                   @RequestParam String password){
         return auth.register(new RegisterReq(firstname, lastname, email, password), false);
     }
+
+    // Register-Admin via URL: /api/auth/register-admin?firstname=...&lastname=...&email=...&password=...
+    @GetMapping(value = "/register-admin", params = {"firstname", "lastname", "email", "password"})
+    public AuthRes registerAdminViaUrl(@RequestParam String firstname,
+                                       @RequestParam String lastname,
+                                       @RequestParam String email,
+                                       @RequestParam String password){
+        return auth.register(new RegisterReq(firstname, lastname, email, password), true);
+    }
 }

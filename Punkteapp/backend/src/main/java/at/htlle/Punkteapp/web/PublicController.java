@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PublicController {
     @GetMapping("/")
-    public String root() { return "PunkteApp API is up ✅"; }
+    public String root() { return "Backend is running"; }
 }
