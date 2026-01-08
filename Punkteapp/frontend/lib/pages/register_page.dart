@@ -16,7 +16,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordController = TextEditingController();
   bool loading = false;
 
-  static const String baseUrl = "http://192.168.5.155:8080";
+  static const String baseUrl = "localhost:8080";
 
   Future<void> register() async {
     setState(() => loading = true);
@@ -31,6 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
       "email": emailController.text.trim(),
       "password": passwordController.text.trim(),
     });
+    print(body);
 
     try {
       final res = await http.post(

@@ -12,7 +12,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  static const String baseUrl = "http://192.168.5.155:8080";
+  static const String baseUrl = "http://localhost:8080";
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();

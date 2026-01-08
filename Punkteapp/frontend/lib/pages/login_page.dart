@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
   bool loading = false;
 
-  static const String baseUrl = "http://192.168.5.155:8080";
+  static const String baseUrl = "http://localhost:8080";
 
   Future<void> login() async {
     setState(() => loading = true);

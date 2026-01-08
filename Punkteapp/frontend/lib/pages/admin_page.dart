@@ -12,7 +12,7 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
-  static const String baseUrl = "http://192.168.5.155:8080";
+  static const String baseUrl = "http://localhost:8080";
 
   List<Map<String, dynamic>> rewards = [];
   List<Map<String, dynamic>> users = [];
