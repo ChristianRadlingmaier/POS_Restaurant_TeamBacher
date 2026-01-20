@@ -3,7 +3,7 @@ spring:
     name: Punkteapp
 
   datasource:
-    url: jdbc:h2:file:C:/Development/RestaurantApp/POS_Restaurant_TeamBacher/Datenbank/punkte;AUTO_SERVER=TRUE;MODE=PostgreSQL
+    url: jdbc:h2:./src/main/resources/punkte;AUTO_SERVER=TRUE;MODE=PostgreSQL
     driver-class-name: org.h2.Driver
     username: sa
     password:

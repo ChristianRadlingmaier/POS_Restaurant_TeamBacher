@@ -37,7 +37,7 @@ public class AuthController {
         return auth.login(new LoginReq(email, password));
     }
 
-    // Register via URL: /api/auth/register?firstname=...&lastname=...&email=...&password=...
+    // Register via URL: http://localhost:8080/api/auth/login?email=hihi&password=1234
     @GetMapping(value = "/register", params = {"firstname", "lastname", "email", "password"})
     public AuthRes registerViaUrl(@RequestParam String firstname,
                                   @RequestParam String lastname,
@@ -46,7 +46,7 @@ public class AuthController {
         return auth.register(new RegisterReq(firstname, lastname, email, password), false);
     }
 
-    // Register-Admin via URL: /api/auth/register-admin?firstname=...&lastname=...&email=...&password=...
+    // Register-Admin via URL: localhost:8080/api/auth/register?firstname=nene&lastname=pepe&email=hihi&password=1234
     @GetMapping(value = "/register-admin", params = {"firstname", "lastname", "email", "password"})
     public AuthRes registerAdminViaUrl(@RequestParam String firstname,
                                        @RequestParam String lastname,
