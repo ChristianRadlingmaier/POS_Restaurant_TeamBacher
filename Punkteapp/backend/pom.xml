@@ -17,13 +17,10 @@
 	<name>Punkteapp</name>
 	<description>Punkte-App (Spring Boot, JPA, JWT)</description>
 
-    <properties>
-        <!-- LTS – läuft rund mit Boot 3.5 -->
-        <java.version>21</java.version>
-        <jjwt.version>0.12.6</jjwt.version>
-        <maven.compiler.source>24</maven.compiler.source>
-        <maven.compiler.target>24</maven.compiler.target>
-    </properties>
+	<properties>
+		<java.version>21</java.version>
+		<jjwt.version>0.12.6</jjwt.version>
+	</properties>
 
 	<dependencies>
 		<!-- Web/API -->
