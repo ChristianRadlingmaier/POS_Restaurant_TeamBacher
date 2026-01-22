@@ -196,15 +196,21 @@ async function loadDashboard() {
 // Rewards
 async function loadRewards() {
     try {
-        const response = await fetch(`${API_URL}/user/rewards`);
+        console.log('Loading rewards from:', `${API_URL}/user/rewards`);
+        const response = await fetch(`${API_URL}/user/rewards`, {
+            mode: 'cors'
+        });
+        
+        console.log('Rewards response status:', response.status);
         const rewards = await response.json();
+        console.log('Rewards data:', rewards);
         
         if (response.ok) {
             const container = document.getElementById('rewardsContainer');
             container.innerHTML = '';
             
-            if (rewards.length === 0) {
-                container.innerHTML = '<p class="text-muted">Keine Rewards verfügbar</p>';
+            if (!rewards || rewards.length === 0) {
+                container.innerHTML = '<p class="text-muted">❌ Keine Rewards in der Datenbank gefunden. Bitte erstelle einige im Admin Panel!</p>';
                 return;
             }
             
@@ -212,29 +218,46 @@ async function loadRewards() {
                 const card = createRewardCard(reward, true);
                 container.appendChild(card);
             });
+        } else {
+            const container = document.getElementById('rewardsContainer');
+            container.innerHTML = `<p class="text-muted">❌ Fehler beim Laden der Rewards (HTTP ${response.status})</p>`;
         }
     } catch (error) {
         console.error('Error loading rewards:', error);
+        const container = document.getElementById('rewardsContainer');
+        container.innerHTML = `<p class="text-muted">❌ Fehler: ${error.message}</p>`;
         showToast('Fehler beim Laden der Rewards: ' + error.message, 'error');
     }
 }
 
 async function loadRewardsPage() {
     try {
-        const response = await fetch(`${API_URL}/user/rewards`);
+        console.log('Loading rewards page...');
+        const response = await fetch(`${API_URL}/user/rewards`, {
+            mode: 'cors'
+        });
         const rewards = await response.json();
+        console.log('Rewards page data:', rewards);
         
         if (response.ok) {
             const container = document.getElementById('rewardsDetailContainer');
             container.innerHTML = '';
             
+            if (!rewards || rewards.length === 0) {
+                container.innerHTML = '<p class="text-muted">❌ Keine Rewards verfügbar</p>';
+                return;
+            }
+            
             rewards.forEach(reward => {
                 const card = createRewardCard(reward, true);
                 container.appendChild(card);
             });
+        } else {
+            document.getElementById('rewardsDetailContainer').innerHTML = `<p class="text-muted">❌ Fehler beim Laden der Rewards</p>`;
         }
     } catch (error) {
-        console.error('Error loading rewards:', error);
+        console.error('Error loading rewards page:', error);
+        document.getElementById('rewardsDetailContainer').innerHTML = `<p class="text-muted">❌ Fehler: ${error.message}</p>`;
     }
 }
 
@@ -469,12 +492,21 @@ async function updateUserPoints(userId) {
 
 async function loadAdminRewards() {
     try {
-        const response = await fetch(`${API_URL}/user/rewards`);
+        console.log('Loading admin rewards...');
+        const response = await fetch(`${API_URL}/user/rewards`, {
+            mode: 'cors'
+        });
         const rewards = await response.json();
+        console.log('Admin rewards data:', rewards);
         
         if (response.ok) {
             const container = document.getElementById('adminRewardsContainer');
             container.innerHTML = '';
+            
+            if (!rewards || rewards.length === 0) {
+                container.innerHTML = '<p class="text-muted">❌ Keine Rewards vorhanden</p>';
+                return;
+            }
             
             rewards.forEach(reward => {
                 const div = document.createElement('div');
@@ -492,9 +524,12 @@ async function loadAdminRewards() {
                 `;
                 container.appendChild(div);
             });
+        } else {
+            document.getElementById('adminRewardsContainer').innerHTML = `<p class="text-muted">❌ Fehler beim Laden der Rewards</p>`;
         }
     } catch (error) {
         console.error('Error loading admin rewards:', error);
+        document.getElementById('adminRewardsContainer').innerHTML = `<p class="text-muted">❌ Fehler: ${error.message}</p>`;
     }
 }
 
