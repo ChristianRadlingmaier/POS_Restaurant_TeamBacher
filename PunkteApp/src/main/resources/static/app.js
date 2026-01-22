@@ -378,7 +378,6 @@ async function loadHistory() {
                 
                 div.innerHTML = `
                     <p><strong>${item.type === 'INVOICE' ? '💰 Punkte erhalten' : '🎁 Reward eingelöst'}</strong></p>
-                    <p>${item.description}</p>
                     <p class="date">${date}</p>
                 `;
                 container.appendChild(div);
@@ -418,11 +417,8 @@ async function loadHistoryPage() {
                     minute: '2-digit'
                 });
                 
-                const description = item.description || (item.type === 'EARN' ? 'Punkte hinzugefügt' : 'Reward eingelöst');
-                
                 div.innerHTML = `
                     <p><strong>${item.type === 'EARN' ? '💰 Punkte erhalten' : '🎁 Reward eingelöst'}</strong></p>
-                    <p>${description}</p>
                     <p><strong>${item.type === 'EARN' ? '+' : '-'}${Math.abs(item.points)} Punkte</strong></p>
                     <p class="date">${date}</p>
                 `;
