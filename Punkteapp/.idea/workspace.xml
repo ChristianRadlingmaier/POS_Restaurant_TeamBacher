@@ -1,60 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="NONE" />
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5d391f1-23f8-48d1-baf7-fd70b977157b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Punkteapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Punkteapp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="de7834e2-0e01-4260-bd7c-e648f3f01dff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/punkte.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/punkte.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/punkte.lock.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/punkte.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/at/htlle/Punkteapp/PunkteappApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/test-classes/at/htlle/Punkteapp/PunkteappApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ClangdSettings">
-    <option name="formatViaClangd" value="false" />
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="34MhEdS9KDe339fFaClML4jLOOk" />
+  <component name="ProjectId" id="36N5sv0XNSXuKPFlZgmnqDLD25c" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/fabia/OneDrive/Dokumente/GitHub/POS_Restaurant_TeamBacher/Punkteapp/pom.xml&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.Punkteapp [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.PunkteappApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fritz\OneDrive\Dokumente\Schule\DBMM\Lube\POS_Restaurant_TeamBacher\Punkteapp\backend\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PunkteappApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Punkteapp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="at.htlle.Punkteapp.PunkteappApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b5d391f1-23f8-48d1-baf7-fd70b977157b" name="Changes" comment="" />
-      <created>1761029238089</created>
+      <changelist id="de7834e2-0e01-4260-bd7c-e648f3f01dff" name="Changes" comment="" />
+      <created>1764834398460</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1761029238089</updated>
+      <updated>1764834398460</updated>
+      <workItem from="1764834399611" duration="943000" />
+      <workItem from="1765266338095" duration="1743000" />
+      <workItem from="1768108242999" duration="225000" />
+      <workItem from="1769067640872" duration="23000" />
+      <workItem from="1769067708896" duration="861000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

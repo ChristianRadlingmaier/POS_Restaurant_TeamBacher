@@ -1,0 +1,261 @@
+2026-01-22 08:50:15.278973+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
+2026-01-22 08:50:35.159868+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
+2026-01-22 08:50:45.189377+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
+2026-01-22 08:50:45.838665+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
+2026-01-22 08:50:46.011420+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
+2026-01-22 08:50:46.288739+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
+2026-01-22 08:50:46.439064+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
+2026-01-22 08:50:46.587390+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
+2026-01-22 08:50:46.720612+01:00 database: flush
+org.h2.message.DbException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:177)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Allgemeiner Fehler: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 14 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/backend/src/main/resources/punkte.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 8 more
