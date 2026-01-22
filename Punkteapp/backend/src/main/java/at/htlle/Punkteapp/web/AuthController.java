@@ -31,27 +31,4 @@ public class AuthController {
         return auth.login(req);
     }
 
-    // Login via URL: /api/auth/login?email=...&password=...
-    @GetMapping(value = "/login", params = {"email", "password"})
-    public AuthRes loginViaUrl(@RequestParam String email, @RequestParam String password){
-        return auth.login(new LoginReq(email, password));
-    }
-
-    // Register via URL: http://localhost:8080/api/auth/login?email=hihi&password=1234
-    @GetMapping(value = "/register", params = {"firstname", "lastname", "email", "password"})
-    public AuthRes registerViaUrl(@RequestParam String firstname,
-                                  @RequestParam String lastname,
-                                  @RequestParam String email,
-                                  @RequestParam String password){
-        return auth.register(new RegisterReq(firstname, lastname, email, password), false);
-    }
-
-    // Register-Admin via URL: localhost:8080/api/auth/register?firstname=nene&lastname=pepe&email=hihi&password=1234
-    @GetMapping(value = "/register-admin", params = {"firstname", "lastname", "email", "password"})
-    public AuthRes registerAdminViaUrl(@RequestParam String firstname,
-                                       @RequestParam String lastname,
-                                       @RequestParam String email,
-                                       @RequestParam String password){
-        return auth.register(new RegisterReq(firstname, lastname, email, password), true);
-    }
 }

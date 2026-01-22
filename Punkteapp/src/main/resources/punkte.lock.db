@@ -1,0 +1,6 @@
+#FileLock
+#Thu Jan 22 08:19:29 CET 2026
+hostName=NevioPC
+id=19be4927421e36eed2f38dbd43cd43131eae26d170c
+method=file
+server=10.0.0.5\:60499

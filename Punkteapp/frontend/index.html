@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punkteapp - Restaurant POS System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🍽️ Punkteapp</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#" onclick="showPage('auth')">Login/Register</a>
+                <a href="#" onclick="showPage('dashboard')" style="display:none;" id="dashboardLink">Dashboard</a>
+                <a href="#" onclick="showPage('admin')" style="display:none;" id="adminLink">Admin</a>
+                <button onclick="logout()" style="display:none;" id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- AUTH PAGE -->
+        <div id="authPage" class="page active">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <h2>Login</h2>
+                    <form id="loginForm" onsubmit="login(event)">
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                        <input type="password" id="loginPassword" placeholder="Passwort" required>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    <p class="text-center">oder <a href="#" onclick="switchAuthForm()">Registriere dich</a></p>
+                </div>
+
+                <div class="auth-box" style="display:none;" id="registerBox">
+                    <h2>Registrierung</h2>
+                    <form id="registerForm" onsubmit="register(event)">
+                        <input type="text" id="registerFirstname" placeholder="Vorname" required>
+                        <input type="text" id="registerLastname" placeholder="Nachname" required>
+                        <input type="email" id="registerEmail" placeholder="Email" required>
+                        <input type="password" id="registerPassword" placeholder="Passwort" required>
+                        <button type="submit" class="btn btn-primary">Registrieren</button>
+                    </form>
+                    <p class="text-center">oder <a href="#" onclick="switchAuthForm()">Login</a></p>
+                </div>
+            </div>
+            <div class="api-info">
+                <h3>API Testlinks</h3>
+                <p><a href="http://localhost:8080/" target="_blank">GET http://localhost:8080/</a> - Backend Status</p>
+                <p><a href="http://localhost:8080/h2-console" target="_blank">H2 Database Console</a></p>
+            </div>
+        </div>
+
+        <!-- DASHBOARD PAGE -->
+        <div id="dashboardPage" class="page">
+            <div class="grid-2">
+                <!-- User Info -->
+                <section class="card">
+                    <h2>👤 Mein Profil</h2>
+                    <div id="userInfo">
+                        <p><strong>Name:</strong> <span id="userName">-</span></p>
+                        <p><strong>Email:</strong> <span id="userEmail">-</span></p>
+                        <p><strong>Punkte:</strong> <span id="userPoints" class="points-badge">0</span></p>
+                        <p><strong>Rolle:</strong> <span id="userRole">-</span></p>
+                    </div>
+                    <button onclick="showPage('profile')" class="btn btn-secondary">Profil bearbeiten</button>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="card">
+                    <h2>⚡ Schnellaktionen</h2>
+                    <button onclick="addInvoice()" class="btn btn-success">+ Punkte hinzufügen</button>
+                    <button onclick="showPage('rewards')" class="btn btn-primary">Rewards ansehen</button>
+                    <button onclick="loadHistory()" class="btn btn-secondary">Historie anzeigen</button>
+                </section>
+            </div>
+
+            <!-- Rewards Section -->
+            <section class="card">
+                <h2>🎁 Verfügbare Rewards</h2>
+                <div id="rewardsContainer" class="rewards-grid"></div>
+            </section>
+
+            <!-- History Section -->
+            <section class="card">
+                <h2>📜 Transaktionshistorie</h2>
+                <div id="historyContainer" class="history-list"></div>
+            </section>
+        </div>
+
+        <!-- REWARDS PAGE -->
+        <div id="rewardsPage" class="page">
+            <button onclick="showPage('dashboard')" class="btn btn-secondary mb-2">← Zurück</button>
+            <h2>🎁 Rewards</h2>
+            <div id="rewardsDetailContainer" class="rewards-grid"></div>
+        </div>
+
+        <!-- PROFILE PAGE -->
+        <div id="profilePage" class="page">
+            <button onclick="showPage('dashboard')" class="btn btn-secondary mb-2">← Zurück</button>
+            <div class="card" style="max-width: 500px;">
+                <h2>✏️ Profil bearbeiten</h2>
+                <form id="profileForm" onsubmit="updateProfile(event)">
+                    <label>Vorname</label>
+                    <input type="text" id="profileFirstname" placeholder="Vorname">
+                    
+                    <label>Nachname</label>
+                    <input type="text" id="profileLastname" placeholder="Nachname">
+                    
+                    <label>Email</label>
+                    <input type="email" id="profileEmail" placeholder="Email">
+                    
+                    <label>Neues Passwort (optional)</label>
+                    <input type="password" id="profilePassword" placeholder="Neues Passwort">
+                    
+                    <button type="submit" class="btn btn-primary">Speichern</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ADMIN PAGE -->
+        <div id="adminPage" class="page">
+            <button onclick="showPage('dashboard')" class="btn btn-secondary mb-2">← Zurück</button>
+            <h2>⚙️ Admin Panel</h2>
+            
+            <!-- Users Management -->
+            <div class="grid-2">
+                <section class="card">
+                    <h3>👥 Benutzer verwalten</h3>
+                    <div id="usersContainer" class="users-list"></div>
+                </section>
+
+                <!-- Rewards Management -->
+                <section class="card">
+                    <h3>🎁 Rewards verwalten</h3>
+                    <form id="rewardForm" onsubmit="createReward(event)">
+                        <h4>Neues Reward</h4>
+                        <input type="text" id="rewardTitle" placeholder="Titel" required>
+                        <textarea id="rewardDesc" placeholder="Beschreibung" required></textarea>
+                        <input type="number" id="rewardPoints" placeholder="Punkte Kosten" required min="1">
+                        <select id="rewardStatus" required>
+                            <option value="">-- Status wählen --</option>
+                            <option value="AVAILABLE">Verfügbar</option>
+                            <option value="UNAVAILABLE">Nicht verfügbar</option>
+                        </select>
+                        <button type="submit" class="btn btn-success">Erstellen</button>
+                    </form>
+                    <h4 style="margin-top: 20px;">Bestehende Rewards</h4>
+                    <div id="adminRewardsContainer" class="rewards-list"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
