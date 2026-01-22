@@ -221,7 +221,25 @@ async function loadRewards() {
                 return;
             }
             
-            rewards.forEach(reward => {
+            const userPointsText = document.getElementById('userPoints')?.textContent || '0';
+            const userPoints = parseInt(userPointsText) || 0;
+            
+            // Filter: nur verfügbare Rewards mit genug Punkten
+            const availableRewards = rewards.filter(reward => {
+                const isAvailable = reward.status === true || reward.status === 'AVAILABLE';
+                const canAfford = userPoints >= reward.pointsCost;
+                return isAvailable && canAfford;
+            });
+            
+            // Sortiere nach Punktekosten (aufsteigend)
+            availableRewards.sort((a, b) => a.pointsCost - b.pointsCost);
+            
+            if (availableRewards.length === 0) {
+                container.innerHTML = '<p class="text-muted">❌ Keine verfügbaren Rewards mit ausreichend Punkten vorhanden</p>';
+                return;
+            }
+            
+            availableRewards.forEach(reward => {
                 const card = createRewardCard(reward, true);
                 container.appendChild(card);
             });
@@ -255,8 +273,20 @@ async function loadRewardsPage() {
                 return;
             }
             
-            rewards.forEach(reward => {
-                const card = createRewardCard(reward, true);
+            // Sortiere Rewards: zuerst verfügbare, dann nach Punkte (aufsteigend)
+            const sortedRewards = rewards.sort((a, b) => {
+                const aAvailable = a.status === true || a.status === 'AVAILABLE' ? 1 : 0;
+                const bAvailable = b.status === true || b.status === 'AVAILABLE' ? 1 : 0;
+                
+                if (aAvailable !== bAvailable) {
+                    return bAvailable - aAvailable; // Verfügbare zuerst
+                }
+                
+                return a.pointsCost - b.pointsCost; // Nach Punkte aufsteigend
+            });
+            
+            sortedRewards.forEach(reward => {
+                const card = createRewardCard(reward, true, false);
                 container.appendChild(card);
             });
         } else {
@@ -268,19 +298,25 @@ async function loadRewardsPage() {
     }
 }
 
-function createRewardCard(reward, clickable = false) {
+function createRewardCard(reward, clickable = false, showButton = true) {
     const card = document.createElement('div');
-    card.className = 'reward-card';
     const isAvailable = reward.status === true || reward.status === 'AVAILABLE';
+    const userPointsText = document.getElementById('userPoints')?.textContent || '0';
+    const userPoints = parseInt(userPointsText) || 0;
+    const canAfford = userPoints >= reward.pointsCost;
+    const isEnabled = isAvailable && canAfford;
+    
+    card.className = isEnabled ? 'reward-card' : 'reward-card disabled';
     const statusClass = isAvailable ? 'available' : 'unavailable';
     const statusText = isAvailable ? 'Verfügbar' : 'Nicht verfügbar';
+    const affordText = !canAfford && isAvailable ? ' (Zu wenige Punkte)' : '';
     
     card.innerHTML = `
         <h4>${reward.title}</h4>
         <p>${reward.description}</p>
         <div class="reward-cost">${reward.pointsCost} Punkte</div>
-        <div class="reward-status ${statusClass}">${statusText}</div>
-        ${isAvailable ? `<button onclick="redeemReward(${reward.rewardId})" class="btn btn-primary" style="margin-top: 1rem;">Einlösen</button>` : ''}
+        <div class="reward-status ${statusClass}">${statusText}${affordText}</div>
+        ${showButton && isEnabled ? `<button onclick="redeemReward(${reward.rewardId})" class="btn btn-primary reward-btn" style="margin-top: auto;">Einlösen</button>` : showButton ? `<button class="btn btn-primary reward-btn" disabled style="margin-top: auto;">Einlösen</button>` : ''}
     `;
     
     return card;

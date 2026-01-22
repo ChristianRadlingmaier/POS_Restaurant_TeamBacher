@@ -249,6 +249,27 @@ body {
     background: #218838;
 }
 
+.reward-btn {
+    margin-top: auto !important;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.reward-btn:hover:not(:disabled) {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.reward-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .btn-danger {
     background: #dc3545;
     color: white;
@@ -330,48 +351,70 @@ form textarea {
 }
 
 .reward-card {
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.5rem;
+    border: none;
+    border-radius: 12px;
+    padding: 2rem;
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .reward-card:hover {
-    border-color: #667eea;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
-    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+    transform: translateY(-8px);
+}
+
+.reward-card.disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.reward-card.disabled:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: none;
 }
 
 .reward-card h4 {
-    color: #333;
-    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 .reward-card p {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    line-height: 1.5;
 }
 
 .reward-cost {
     display: inline-block;
-    background: #667eea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
     font-weight: bold;
-    margin: 0.5rem 0;
+    margin: 1rem 0 0.8rem 0;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .reward-status {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
+    padding: 0.35rem 0.9rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
+    font-weight: 600;
+    margin: 0.8rem 0;
+    letter-spacing: 0.3px;
 }
 
 .reward-status.available {

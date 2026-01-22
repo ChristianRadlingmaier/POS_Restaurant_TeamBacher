@@ -14,3 +14,5 @@ public class PunkteappApplication {
 
 
 //localhost:8080/index.html
+
+//admin acc: admin@test, 1234
