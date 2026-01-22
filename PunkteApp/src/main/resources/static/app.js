@@ -3,7 +3,7 @@ const API_URL = 'http://localhost:8080/api';
 let currentUser = {
     email: localStorage.getItem('userEmail') || null,
     password: localStorage.getItem('userPassword') || null,
-    isAdmin: localStorage.getItem('userRole') === 'ADMIN'
+    isAdmin: localStorage.getItem('userRole') === 'true'
 };
 
 // Initialize
@@ -29,6 +29,8 @@ function showPage(pageName) {
             loadDashboard();
         } else if (pageName === 'rewards') {
             loadRewardsPage();
+        } else if (pageName === 'history') {
+            loadHistoryPage();
         } else if (pageName === 'admin') {
             loadAdminPanel();
         }
@@ -36,20 +38,26 @@ function showPage(pageName) {
 }
 
 function updateNavbar() {
-    const dashboardLink = document.getElementById('dashboardLink');
+    const authLink = document.getElementById('authLink');
     const adminLink = document.getElementById('adminLink');
     const logoutBtn = document.getElementById('logoutBtn');
+    const manageRewardsBtn = document.getElementById('manageRewardsBtn');
     
     if (currentUser.email) {
-        dashboardLink.style.display = 'inline';
+        authLink.style.display = 'none';
         logoutBtn.style.display = 'inline';
         if (currentUser.isAdmin) {
             adminLink.style.display = 'inline';
+            manageRewardsBtn.style.display = 'inline';
+        } else {
+            adminLink.style.display = 'none';
+            manageRewardsBtn.style.display = 'none';
         }
     } else {
-        dashboardLink.style.display = 'none';
+        authLink.style.display = 'inline';
         adminLink.style.display = 'none';
         logoutBtn.style.display = 'none';
+        manageRewardsBtn.style.display = 'none';
     }
 }
 
@@ -165,7 +173,7 @@ async function loadUserData() {
         
         if (response.ok) {
             localStorage.setItem('userRole', user.role);
-            currentUser.isAdmin = user.role === 'ADMIN';
+            currentUser.isAdmin = user.role === true;
             updateNavbar();
             return user;
         }
@@ -182,7 +190,7 @@ async function loadDashboard() {
     document.getElementById('userName').textContent = user.firstname + ' ' + user.lastname;
     document.getElementById('userEmail').textContent = user.email;
     document.getElementById('userPoints').textContent = user.points;
-    document.getElementById('userRole').textContent = user.role === 'ADMIN' ? 'Administrator' : 'Benutzer';
+    document.getElementById('userRole').textContent = user.role == true ? 'Administrator' : 'Benutzer';
 
     // Load profile form data
     document.getElementById('profileFirstname').value = user.firstname;
@@ -190,7 +198,6 @@ async function loadDashboard() {
     document.getElementById('profileEmail').value = user.email;
 
     loadRewards();
-    loadHistory();
 }
 
 // Rewards
@@ -336,6 +343,51 @@ async function loadHistory() {
                 div.innerHTML = `
                     <p><strong>${item.type === 'INVOICE' ? '💰 Punkte erhalten' : '🎁 Reward eingelöst'}</strong></p>
                     <p>${item.description}</p>
+                    <p class="date">${date}</p>
+                `;
+                container.appendChild(div);
+            });
+        }
+    } catch (error) {
+        console.error('Error loading history:', error);
+    }
+}
+
+async function loadHistoryPage() {
+    if (!currentUser.email || !currentUser.password) return;
+
+    try {
+        const response = await fetch(
+            `${API_URL}/user/history?email=${encodeURIComponent(currentUser.email)}&password=${encodeURIComponent(currentUser.password)}`
+        );
+        const history = await response.json();
+        
+        if (response.ok) {
+            const container = document.getElementById('historyDetailContainer');
+            container.innerHTML = '';
+            
+            if (history.length === 0) {
+                container.innerHTML = '<p class="text-muted">Keine Transaktionen vorhanden</p>';
+                return;
+            }
+            
+            history.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'history-item';
+                const date = new Date(item.date).toLocaleDateString('de-DE', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                const description = item.description || (item.type === 'EARN' ? 'Punkte hinzugefügt' : 'Reward eingelöst');
+                
+                div.innerHTML = `
+                    <p><strong>${item.type === 'EARN' ? '💰 Punkte erhalten' : '🎁 Reward eingelöst'}</strong></p>
+                    <p>${description}</p>
+                    <p><strong>${item.type === 'EARN' ? '+' : '-'}${Math.abs(item.points)} Punkte</strong></p>
                     <p class="date">${date}</p>
                 `;
                 container.appendChild(div);
@@ -539,7 +591,7 @@ async function createReward(event) {
     const title = document.getElementById('rewardTitle').value;
     const description = document.getElementById('rewardDesc').value;
     const pointsCost = parseInt(document.getElementById('rewardPoints').value);
-    const status = document.getElementById('rewardStatus').value;
+    const status = document.getElementById('rewardStatus').value === 'AVAILABLE';
 
     try {
         const response = await fetch(`${API_URL}/admin/rewards`, {
@@ -591,7 +643,7 @@ async function updateReward(id, title, description, pointsCost, status) {
                 title,
                 description,
                 pointsCost,
-                status
+                status: status === 'AVAILABLE' || status === true
             })
         });
 

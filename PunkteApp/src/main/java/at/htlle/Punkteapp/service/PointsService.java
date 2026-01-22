@@ -41,7 +41,7 @@ public class PointsService {
     public void redeem(Long userId, Long rewardId){
         var u = users.findById(userId).orElseThrow();
         var r = rewards.findById(rewardId).orElseThrow();
-        if (!"ACTIVE".equalsIgnoreCase(String.valueOf(Optional.ofNullable(r.getStatus()).orElse(true))))
+        if (!Optional.ofNullable(r.getStatus()).orElse(false))
             throw new IllegalStateException("Reward inactive");
         var cost = Optional.ofNullable(r.getPointsCost()).orElse(0);
         if (Optional.ofNullable(u.getPoints()).orElse(0) < cost)

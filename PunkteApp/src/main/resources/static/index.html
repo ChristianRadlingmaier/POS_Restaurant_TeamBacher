@@ -11,8 +11,7 @@
         <div class="container">
             <div class="logo">🍽️ Punkteapp</div>
             <div class="nav-links" id="navLinks">
-                <a href="#" onclick="showPage('auth')">Login/Register</a>
-                <a href="#" onclick="showPage('dashboard')" style="display:none;" id="dashboardLink">Dashboard</a>
+                <a href="#" onclick="showPage('auth')" style="display:none;" id="authLink">Login/Register</a>
                 <a href="#" onclick="showPage('admin')" style="display:none;" id="adminLink">Admin</a>
                 <button onclick="logout()" style="display:none;" id="logoutBtn" class="logout-btn">Logout</button>
             </div>
@@ -72,7 +71,8 @@
                     <h2>⚡ Schnellaktionen</h2>
                     <button onclick="addInvoice()" class="btn btn-success">+ Punkte hinzufügen</button>
                     <button onclick="showPage('rewards')" class="btn btn-primary">Rewards ansehen</button>
-                    <button onclick="loadHistory()" class="btn btn-secondary">Historie anzeigen</button>
+                    <button onclick="showPage('history')" class="btn btn-secondary">Historie anzeigen</button>
+                    <button onclick="showPage('admin')" class="btn btn-warning" style="display:none;" id="manageRewardsBtn">⚙️ Rewards verwalten</button>
                 </section>
             </div>
 
@@ -81,12 +81,6 @@
                 <h2>🎁 Verfügbare Rewards</h2>
                 <div id="rewardsContainer" class="rewards-grid"></div>
             </section>
-
-            <!-- History Section -->
-            <section class="card">
-                <h2>📜 Transaktionshistorie</h2>
-                <div id="historyContainer" class="history-list"></div>
-            </section>
         </div>
 
         <!-- REWARDS PAGE -->
@@ -94,6 +88,15 @@
             <button onclick="showPage('dashboard')" class="btn btn-secondary mb-2">← Zurück</button>
             <h2>🎁 Rewards</h2>
             <div id="rewardsDetailContainer" class="rewards-grid"></div>
+        </div>
+
+        <!-- HISTORY PAGE -->
+        <div id="historyPage" class="page">
+            <button onclick="showPage('dashboard')" class="btn btn-secondary mb-2">← Zurück</button>
+            <div class="card">
+                <h2>📜 Transaktionshistorie</h2>
+                <div id="historyDetailContainer" class="history-list"></div>
+            </div>
         </div>
 
         <!-- PROFILE PAGE -->
