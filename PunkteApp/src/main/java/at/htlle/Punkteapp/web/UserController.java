@@ -5,7 +5,6 @@ import at.htlle.Punkteapp.dtos.*;
 import at.htlle.Punkteapp.repositories.RewardRepository;
 import at.htlle.Punkteapp.repositories.UserRepository;
 import at.htlle.Punkteapp.service.PointsService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
