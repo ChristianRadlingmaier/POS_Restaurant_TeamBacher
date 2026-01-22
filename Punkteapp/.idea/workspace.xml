@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de7834e2-0e01-4260-bd7c-e648f3f01dff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/punkte.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/punkte.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/punkte.lock.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/punkte.mv.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/test/test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/at/htlle/Punkteapp/PunkteappApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/test-classes/at/htlle/Punkteapp/PunkteappApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htlle/Punkteapp/PunkteappApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htlle/Punkteapp/PunkteappApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/punkte.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/punkte.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -55,14 +42,18 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.PunkteappApplication.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/fritz/OneDrive/Dokumente/Schule/DBMM/Lube/POS_Restaurant_TeamBacher/Punkteapp/frontend",
+    "last_opened_file_path": "C:/Development/POS_Restaurant_TeamBacher/PunkteApp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -101,6 +92,9 @@
       <workItem from="1768108242999" duration="225000" />
       <workItem from="1769067640872" duration="23000" />
       <workItem from="1769067708896" duration="861000" />
+      <workItem from="1769069047005" duration="12000" />
+      <workItem from="1769069065847" duration="3000" />
+      <workItem from="1769069087556" duration="176000" />
     </task>
     <servers />
   </component>
